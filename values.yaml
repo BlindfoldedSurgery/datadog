@@ -1,0 +1,17 @@
+namespace: datadog
+
+secret:
+  name: datadog-keys
+  secretStoreName: mgmt-prod
+  data:
+  - secretKey: api-key
+    remoteRef:
+      key: DATADOG_API_KEY
+
+datadog:
+  datadog:
+    site: "us5.datadoghq.com"
+    apiKeyExistingSecret: datadog-keys
+    logs:
+      enabled: true
+      containerCollectAll: true
